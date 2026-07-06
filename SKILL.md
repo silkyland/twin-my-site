@@ -40,6 +40,12 @@ is then one **deep-plan** run for implementation detail.
 > now — store policies change quarterly and training-data memory of them is
 > a rejection waiting to happen.
 
+**No web access in this session?** Degrade honestly: extract everything
+local evidence allows (routes, CSS, code), tag every store rule, character
+limit, and platform claim `UNVERIFIED — needs web check`, and mark the
+store-compliance and listing sections provisional. Never fill them from
+memory.
+
 ## Progress checklist
 
 Copy this into your response and check items off:
