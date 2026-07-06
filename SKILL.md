@@ -6,11 +6,15 @@ description: >-
   web product's features and classifies each for the app, audits API
   readiness and designs the mobile API contract (token auth, pagination,
   media, push pipeline), extracts the web's design language into mobile
-  design tokens translated to native idioms, commits to an app stack, and
-  writes a phased blueprint starting with a walking skeleton. Use when the
-  user has a website and wants a mobile app version or companion app, needs
-  an API designed for an app, wants the app to match the web's design and
-  tone, or mentions twin-my-site or /twin-my-site.
+  design tokens translated to native idioms, commits to an app stack,
+  prepares the store listing (app name, description, category, privacy
+  policy and account-deletion links — recommending generators when missing —
+  and a scaffolded store/ publish kit), and writes a phased blueprint
+  starting with a walking skeleton. Use when the user has a website and
+  wants a mobile app version or companion app, needs an API designed for an
+  app, wants the app to match the web's design and tone, asks to prepare an
+  App Store or Play Store listing, or mentions twin-my-site or
+  /twin-my-site.
 license: MIT
 argument-hint: "[web-project-root] [driver] [platforms: ios/android/both]"
 ---
@@ -48,8 +52,9 @@ Twin Progress:
 - [ ] Step 3: Design language extraction — web tokens → mobile tokens, translated not transplanted
 - [ ] Step 4: Stack decision — one committed choice with rationale
 - [ ] Step 5: Mobile-native layer — offline, push, deep links, store requirements
-- [ ] Step 6: Blueprint document written; Phase 1 = walking skeleton
-- [ ] Step 7: Self-check + report
+- [ ] Step 6: Store listing & publish kit — name, description, category, legal links, store/ scaffolded
+- [ ] Step 7: Blueprint document written; Phase 1 = walking skeleton
+- [ ] Step 8: Self-check + report
 ```
 
 ## Step 0 — Frame
@@ -141,7 +146,33 @@ Design the parts that make it an app rather than a port:
   labels/data-safety forms. Any rule that reshapes scope goes to the user
   immediately, not into a footnote.
 
-## Step 6 — Blueprint document
+## Step 6 — Store listing and publish kit
+
+Prepare the launch surface now, from evidence — full method in
+[references/store-listing-guide.md](references/store-listing-guide.md):
+
+- **Listing text:** app name candidates (from the web brand, cited),
+  subtitle/short description (from the `mobile-new` value), long
+  description (hook from the site's own copy; bullets from the census),
+  keywords, localized to the site's language(s). Character limits verified
+  from current store docs — never from memory.
+- **Category:** primary + secondary per store, chosen from the CURRENT
+  category lists (fetched, cited) with one-line rationale.
+- **Privacy policy link:** audit the site for an existing policy
+  (`file:line`); if present, list the app-specific coverage gaps (push
+  tokens, device IDs, SDKs); if absent, recommend generators (iubenda,
+  Termly, GetTerms, …) and host the result at the canonical domain
+  (`https://<site>/privacy`).
+- **Account deletion link:** fetch current Apple/Google requirements, then
+  recommend one canonical web route (`https://<site>/account/delete`)
+  reusing web auth, paired with the contract's deletion endpoint.
+- **Scaffold `store/`** in the repo — listing/, legal/ (privacy,
+  account-deletion, data-safety worksheet mapped from the API contract),
+  assets/ (icon/screenshot/feature-graphic specs with citations), and a
+  verifiable pre-submission checklist. Every file drafted with real
+  content from this run; no empty placeholders.
+
+## Step 7 — Blueprint document
 
 Write `docs/TWIN_BLUEPRINT.md` per
 [references/blueprint-template.md](references/blueprint-template.md).
@@ -150,12 +181,16 @@ list + one detail screen, end-to-end through the real API on a real device
 — it validates the API contract, the design tokens, and the stack choice
 at once, before scale-out. Every phase sized for one deep-plan run.
 
-## Step 7 — Self-check and report
+## Step 8 — Self-check and report
 
 - Every feature verdict traces to a route/controller citation; every API
   gap names the server-side work; every design token has a CSS source;
-  every store-rule claim has a current citation.
+  every store-rule claim, character limit, and category has a current
+  citation fetched this run.
+- `store/` exists with drafted content in every file — zero empty
+  placeholders — and the privacy/deletion links are either live URLs or
+  explicit roadmap items.
 - The user could hand Phase 1 to deep-plan today.
 - Report: scope (include/adapt/exclude/mobile-new counts), the API gap
-  list (the real cost center), stack decision in one line, and the top 3
-  risks.
+  list (the real cost center), stack decision in one line, the recommended
+  app name + category, legal-link status, and the top 3 risks.

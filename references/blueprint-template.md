@@ -52,11 +52,16 @@ Offline model (what's readable offline, sync strategy, storage budget),
 push pipeline end to end, deep/universal links mapping web URLs to app
 screens, analytics parity.
 
-## 7. Store compliance
+## 7. Store compliance & listing
 
 The CURRENT rules that apply, each with citation URL + date checked:
 minimum functionality, IAP applicability for this product's monetization,
 account deletion, privacy labels / data safety. Scope impacts highlighted.
+
+Listing summary: recommended app name + category (per store), privacy
+policy URL status (live / needs update / to create — with generator
+recommendation), account deletion URL. Full drafts live in the scaffolded
+[store/](../store/) publish kit — link it here.
 
 ## 8. Phased roadmap
 

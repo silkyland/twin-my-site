@@ -40,7 +40,14 @@ Say you run a magazine platform on the web with no app:
    links (web URLs open the app), and **current** store rules fetched this
    run: minimum functionality, IAP applicability, account deletion,
    privacy labels.
-6. **Blueprint** — `docs/TWIN_BLUEPRINT.md`, roadmap phased for
+6. **Store listing & publish kit** — app name candidates from the brand,
+   description drafted from the site's own copy (localized), category
+   picked from the current store lists, privacy policy audited (or a
+   generator recommended — iubenda/Termly/GetTerms — hosted at
+   `https://<site>/privacy`), an account-deletion URL designed on the
+   existing web auth, and a `store/` folder scaffolded with drafted
+   listing, legal, asset-spec, and pre-submission checklist files.
+7. **Blueprint** — `docs/TWIN_BLUEPRINT.md`, roadmap phased for
    [deep-plan](https://github.com/silkyland/deep-plan), Phase 1 always a
    **walking skeleton**: real auth + one list + one detail screen through
    the real API on a real device.
@@ -78,6 +85,7 @@ twin-my-site/
     ├── feature-census.md             # include/adapt/exclude/mobile-new method
     ├── api-contract-guide.md         # Audit rules + mobile API contract design
     ├── design-translation.md         # Token extraction + web→native idiom map
+    ├── store-listing-guide.md        # Listing text, category, legal links, store/ publish kit
     └── blueprint-template.md         # docs/TWIN_BLUEPRINT.md structure
 ```
 
