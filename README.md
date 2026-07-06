@@ -1,3 +1,5 @@
+![twin-my-site social preview](assets/social-preview.png)
+
 # twin-my-site
 
 **Plan a native mobile companion for your website — a twin, not a wrapper.**
