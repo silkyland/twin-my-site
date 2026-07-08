@@ -45,6 +45,8 @@ Counts: <N include / N adapt / N exclude / N mobile-new>.
 - **Rationale:** team skills / web-stack affinity (verified claim) /
   census feature needs / maintenance reality
 - **Rejected:** <alternative — one line each>
+- **Reversibility:** ONE-WAY — confirmed at the Twin Brief Gate, or
+  explicitly marked UNCONFIRMED (headless run)
 
 ## 6. Mobile-native layer
 
@@ -66,8 +68,10 @@ recommendation), account deletion URL. Full drafts live in the scaffolded
 ## 8. Phased roadmap
 
 Phase 1 is the **walking skeleton**: real auth + one content list + one
-detail screen, end-to-end through the real API on a device. Each phase
-sized for one deep-plan run:
+detail screen, end-to-end through the real API on a device. Every
+`UNVERIFIED` that survives into this document is a named, timeboxed spike
+task placed FIRST in the phase that depends on it. Each phase sized for
+one deep-plan run:
 
 ### Phase <N>: <name> (magnitude: S/M/L)
 - **Scope:** concrete screens/endpoints/tokens
@@ -75,7 +79,11 @@ sized for one deep-plan run:
 - **Exit criteria:** verifiable (a flow works on device, a store checklist passes)
 - **Next:** run deep-plan on this phase
 
-## 9. Risk register
+## 9. Risk register (pre-mortem)
+
+Run the pre-mortem first: the app shipped and failed three months later —
+write the top three causes for THIS product; those are the risks. Generic
+risks that fit any app are a quality-bar failure.
 
 | Risk | Likelihood | Impact | Mitigation |
 <font licensing, store rejection vectors, API gap slippage, image
@@ -83,8 +91,8 @@ bandwidth, team ramp-up on the chosen stack…>
 
 ## 10. Corrections & unverified
 
-Beliefs corrected during analysis (mandatory), and UNVERIFIED items with
-what would verify them.
+Beliefs corrected during analysis (mandatory), and UNVERIFIED items —
+each naming the roadmap spike task that resolves it.
 ```
 
 ---
@@ -95,3 +103,7 @@ what would verify them.
 - A designer can build the theme from section 4 alone.
 - Phase 1 can be handed to deep-plan today.
 - Nothing in section 7 is from memory — every store rule was fetched this run.
+- Every ONE-WAY decision (stack, contract v1, name + bundle id) is
+  user-confirmed or explicitly marked UNCONFIRMED.
+- Every UNVERIFIED in section 10 has a spike task in section 8; the risks
+  in section 9 came from the pre-mortem, not a generic checklist.

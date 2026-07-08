@@ -52,14 +52,15 @@ Copy this into your response and check items off:
 
 ```
 Twin Progress:
-- [ ] Step 0: Frame — driver, platforms, scope, team constraints
+- [ ] Step 0: Frame — driver, platforms, scope, team constraints, Twin Questions
 - [ ] Step 1: Feature census — every web feature classified for the app
 - [ ] Step 2: API audit & contract — existing endpoints, gaps, mobile contract designed
 - [ ] Step 3: Design language extraction — web tokens → mobile tokens, translated not transplanted
-- [ ] Step 4: Stack decision — one committed choice with rationale
+- [ ] Step 4: Stack decision — one committed choice with rationale, reversibility-tagged
 - [ ] Step 5: Mobile-native layer — offline, push, deep links, store requirements
+- [ ] Twin Brief Gate — 10–20 line brief confirmed; every ONE-WAY decision resolved
 - [ ] Step 6: Store listing & publish kit — name, description, category, legal links, store/ scaffolded
-- [ ] Step 7: Blueprint document written; Phase 1 = walking skeleton
+- [ ] Step 7: Blueprint document written; Phase 1 = walking skeleton, spikes placed first
 - [ ] Step 8: Self-check + report
 ```
 
@@ -74,6 +75,17 @@ Twin Progress:
 - **Team constraints:** who maintains the app? Their existing skills weigh
   heavily in Step 4 — an app the team can't maintain is a liability with
   an icon.
+- **Twin Questions:** write a numbered list of the questions the blueprint
+  needs answered (does a consumable API exist? what auth model? do the
+  fonts license for app embedding? where in the code do push-worthy events
+  originate? which current store rules touch this product's monetization?).
+  Steps 1–5 exist to answer this list — each finding cites the question it
+  answers, questions discovered mid-run are appended, and research ends
+  when every question is answered with evidence or tagged `UNVERIFIED` —
+  **not** when every file has been read.
+- If a required input is genuinely ambiguous, ask **one question at a
+  time** with your recommended answer and a one-line reason attached —
+  never a wall of questions.
 
 ## Step 1 — Feature census
 
@@ -135,6 +147,14 @@ pull toward native), and hiring/maintenance reality. Cite docs for any
 capability the decision leans on. One decision with rationale and rejected
 alternatives in one line each — no menus.
 
+Tag every committed decision **REVERSIBLE** (cheap to undo later) or
+**ONE-WAY** (undo cost rivals do cost). Three decisions in this skill are
+always ONE-WAY: the **app stack** (a swap after the skeleton exists is a
+rewrite), the **API contract v1** (installed clients can't be forced to
+update), and the **app name + bundle id** (permanent after first store
+submission). ONE-WAY decisions are confirmed at the Twin Brief Gate below —
+never silently committed.
+
 ## Step 5 — Mobile-native layer
 
 Design the parts that make it an app rather than a port:
@@ -151,6 +171,25 @@ Design the parts that make it an app rather than a port:
   rules if any paid content, account deletion requirement, privacy
   labels/data-safety forms. Any rule that reshapes scope goes to the user
   immediately, not into a footnote.
+
+## Twin Brief Gate — before the expensive artifacts
+
+Before scaffolding `store/` (Step 6) or writing the blueprint (Step 7),
+present a compact brief in chat — 10–20 lines total, this is the brief,
+not the document:
+
+- Scope verdict + census counts (include / adapt / exclude / mobile-new).
+- The stack decision, one-line rationale.
+- The top 3 API gaps (the real cost center) and who builds them.
+- Any store rule that reshapes scope.
+- The recommended app name + bundle id (deriving candidates is cheap;
+  writing the kit around the wrong name is not).
+- Every **ONE-WAY** decision flagged as such.
+
+Ask for confirmation **once**. Changing a decision here costs one message;
+changing it after Step 7 costs a rewrite. If the user cannot respond
+(headless run), proceed on REVERSIBLE decisions and carry every ONE-WAY
+decision into the blueprint explicitly marked `UNCONFIRMED`.
 
 ## Step 6 — Store listing and publish kit
 
@@ -187,12 +226,35 @@ list + one detail screen, end-to-end through the real API on a real device
 — it validates the API contract, the design tokens, and the stack choice
 at once, before scale-out. Every phase sized for one deep-plan run.
 
+Two more roadmap non-negotiables:
+
+- Every `UNVERIFIED` that survives into the blueprint becomes a named,
+  timeboxed **spike task** placed FIRST in the roadmap phase that depends
+  on it — "prove token auth works from the native client", "push reaches
+  a test device end-to-end", "font license covers app embedding". No
+  unknown sits silently under an implementation task.
+- The risk register comes from a **pre-mortem**: assume the app shipped
+  and failed three months later — rejected in review, uninstalled within
+  a week, broken on installed devices by an API change — and write the
+  top three causes. Those are the risks, each with a mitigation. Generic
+  risks that fit any app ("store review might fail") are a self-check
+  failure.
+
 ## Step 8 — Self-check and report
 
 - Every feature verdict traces to a route/controller citation; every API
   gap names the server-side work; every design token has a CSS source;
   every store-rule claim, character limit, and category has a current
   citation fetched this run.
+- Every Twin Question from Step 0 is answered with evidence or tagged
+  `UNVERIFIED` — and every surviving `UNVERIFIED` has a named, timeboxed
+  spike task placed first in the roadmap phase that depends on it.
+- Every ONE-WAY decision (stack, API contract v1, app name + bundle id)
+  was confirmed at the Twin Brief Gate or is marked `UNCONFIRMED`.
+- Roadmap Phase 1 is the walking skeleton — real auth + one list + one
+  detail screen, end-to-end on a device. Any other Phase 1 fails this check.
+- Every risk in the register names something specific to THIS product;
+  risks that could appear in any app blueprint fail.
 - `store/` exists with drafted content in every file — zero empty
   placeholders — and the privacy/deletion links are either live URLs or
   explicit roadmap items.

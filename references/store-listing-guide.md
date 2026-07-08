@@ -20,6 +20,12 @@ nothing is invented the night before submission.
 - Name availability can only be confirmed inside the store consoles — mark
   it `UNVERIFIED (manual console check)` and say so.
 - Deliver: 2–3 candidates, recommended one first, with reasoning.
+- Propose the **bundle id / application id** alongside the name (e.g.
+  `com.<brand>.app`, reverse-DNS from a domain the user controls). This
+  is **ONE-WAY**: the Android applicationId can never change after the
+  first Play submission, and the iOS bundle id is fixed once the App
+  Store record exists — verify the current rules and cite. It goes
+  through the Twin Brief Gate with the name.
 
 **Subtitle (iOS, ~30 chars) / Short description (Android, ~80 chars)** —
 the value proposition in one line, derived from the census's `mobile-new`
@@ -108,11 +114,19 @@ store/
 │   ├── icon/README.md        # required sizes/formats (cited from current specs) + source-logo pointer
 │   ├── screenshots/README.md # required device classes & dimensions (cited) + shot list matching the walking skeleton screens
 │   └── feature-graphic/README.md  # Play feature graphic spec (cited)
-└── checklist.md              # pre-submission checklist per store: listing fields, legal links live,
-                              # assets present, age rating questionnaire, build uploaded, data safety filed
+└── checklist.md              # pre-submission checklist per store: developer accounts enrolled, listing
+                              # fields, legal links live, assets present, age rating questionnaire,
+                              # build uploaded, data safety filed
 ```
 
 Notes:
+
+- **Developer accounts are a prerequisite with lead time:** Apple
+  Developer Program and Google Play Console enrollment carry fees and
+  identity-verification delays (organization enrollment may require a
+  D-U-N-S number). Verify current fees and requirements (cite URL + date)
+  and put enrollment on the roadmap before the first on-device/TestFlight
+  build — not the night before submission.
 
 - `assets/*/README.md` files carry the specs and the shot list; the actual
   images are produced later (Phase includes them) — but the *requirements*

@@ -37,12 +37,16 @@ Say you run a magazine platform on the web with no app:
    the web can't answer: dark mode, app icon, **font licensing for app
    embedding** (the classic late surprise).
 4. **Stack decision** — native / Flutter / React Native decided (not
-   menued) from team skills, web-stack affinity, and census needs.
+   menued) from team skills, web-stack affinity, and census needs — and
+   tagged **ONE-WAY**. Every one-way call (stack, API contract v1, app
+   name + bundle id) is confirmed at a compact brief gate in chat before
+   any long document is written.
 5. **Mobile-native layer** — offline model, push end-to-end, universal
    links (web URLs open the app), and **current** store rules fetched this
    run: minimum functionality, IAP applicability, account deletion,
    privacy labels.
-6. **Store listing & publish kit** — app name candidates from the brand,
+6. **Store listing & publish kit** — app name + bundle-id candidates
+   from the brand,
    description drafted from the site's own copy (localized), category
    picked from the current store lists, privacy policy audited (or a
    generator recommended — iubenda/Termly/GetTerms — hosted at
@@ -52,7 +56,10 @@ Say you run a magazine platform on the web with no app:
 7. **Blueprint** — `docs/TWIN_BLUEPRINT.md`, roadmap phased for
    [deep-plan](https://github.com/silkyland/deep-plan), Phase 1 always a
    **walking skeleton**: real auth + one list + one detail screen through
-   the real API on a real device.
+   the real API on a real device. Every surviving unknown becomes a
+   named, timeboxed spike placed first in the phase that depends on it,
+   and the risk register comes from a pre-mortem ("the app shipped and
+   failed three months later — why?"), not a generic checklist.
 
 ## The skill family
 

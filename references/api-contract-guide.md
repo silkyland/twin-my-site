@@ -30,7 +30,9 @@ Design API-first: the app is client #1, not the only client ever.
   device) and the account-deletion endpoint (store requirement).
 - **Versioning:** `/api/v1/...` from day one; additive changes preferred;
   breaking changes get a new version and a deprecation window measured in
-  months (installed clients lag).
+  months (installed clients lag). The published v1 contract is a
+  **ONE-WAY** decision — it is confirmed at the Twin Brief Gate, not
+  silently committed.
 - **Pagination:** cursor-based for feeds/lists (offset breaks when content
   shifts under an infinite scroll).
 - **Media:** mobile-sized variants (widths, formats) via CDN params or
@@ -65,3 +67,9 @@ For each resource, a compact table the blueprint embeds:
 Every MISSING row is server-side roadmap work with its reuse pointer
 (`file:line` of the domain code it wraps). No invented "probably exists"
 endpoints — the audit either found it or it's MISSING.
+
+Anything the contract leans on that could not be verified this run — the
+auth flow actually working from a native client, server egress to
+APNs/FCM, the CDN supporting variant params — is tagged `UNVERIFIED` and
+becomes a named, timeboxed spike task in the blueprint's roadmap, placed
+before the work that depends on it.
