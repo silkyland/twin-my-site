@@ -46,6 +46,14 @@ limit, and platform claim `UNVERIFIED — needs web check`, and mark the
 store-compliance and listing sections provisional. Never fill them from
 memory.
 
+**No codebase, only a live site?** The census and design extraction can
+run against the deployed product instead: crawl the navigation, sitemap,
+and rendered pages; extract computed styles for tokens. Evidence citations
+become URLs instead of `file:line`, the API audit is limited to what the
+browser's network traffic reveals, and every gap inherits `UNVERIFIED —
+needs source access`. State this ceiling in the report — a blueprint from
+the outside is a weaker blueprint.
+
 ## Progress checklist
 
 Copy this into your response and check items off:
@@ -75,6 +83,9 @@ Twin Progress:
 - **Team constraints:** who maintains the app? Their existing skills weigh
   heavily in Step 4 — an app the team can't maintain is a liability with
   an icon.
+- **Monetization:** free / ads / subscriptions / paid content. This decides
+  whether IAP rules apply (Step 5) and shapes the listing (Step 6) — pin it
+  now, not at submission time.
 - **Twin Questions:** write a numbered list of the questions the blueprint
   needs answered (does a consumable API exist? what auth model? do the
   fonts license for app embedding? where in the code do push-worthy events
@@ -102,7 +113,7 @@ memory of using the site). Classify every feature for the app:
 
 See [references/feature-census.md](references/feature-census.md) for the
 method. Output: the feature matrix — it drives the API contract (Step 2)
-and the roadmap (Step 6).
+and the roadmap (Step 7).
 
 ## Step 2 — API audit and contract
 
@@ -262,3 +273,14 @@ Two more roadmap non-negotiables:
 - Report: scope (include/adapt/exclude/mobile-new counts), the API gap
   list (the real cost center), stack decision in one line, the recommended
   app name + category, legal-link status, and the top 3 risks.
+
+## When things go wrong
+
+| Situation | Response |
+|-----------|----------|
+| No API at all (fully server-rendered) | Not a blocker — the contract IS the gap list; say plainly that server-side work is the longest pole and phase it first |
+| The census yields zero `mobile-new` rows | Flag it: a twin with no mobile-only value is a website in a costume — challenge the driver with the user before writing the blueprint |
+| Web design tokens don't exist (ad-hoc CSS) | Extract the de-facto values (most-used colors/sizes via grep), propose them AS the token set, and note the web debt |
+| Font license doesn't cover app embedding | Name it as a Phase 1 blocker with alternatives (licensed tier, similar open font) — never assume the web license transfers |
+| The site is behind auth and can't be crawled | Ask for credentials or fall back to codebase-only evidence; never invent features from the marketing page |
+| User wants a WebView wrapper anyway | Explain the minimum-functionality rejection risk with a current citation, then respect the decision — document it as an accepted risk |

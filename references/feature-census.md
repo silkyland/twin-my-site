@@ -2,7 +2,9 @@
 
 Turn "read the features and functions of my web product" into an
 evidence-backed matrix. Features come from code, not from memory of using
-the site.
+the site. (No codebase? Evidence becomes URLs — crawled navigation,
+sitemap, rendered pages — each row tagged `UNVERIFIED — needs source
+access`.)
 
 ## Where features live (walk all of these)
 
